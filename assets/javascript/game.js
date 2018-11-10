@@ -1,7 +1,7 @@
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var wins = 0;
 var losses = 0;
-var guessesNum = 10;
+var guessesNum = [10];
 var guessChoice = [];
 var directionsText = document.getElementById("directions-text");
 var winsText = document.getElementById("wins-text");
@@ -22,6 +22,7 @@ document.onkeypress = function (event) {
         guessesNum = 9;
         guessChoice = [];
         winsText.textContent = 'Wins: ' + wins;
+
     } else {
         if (guessChoice.includes(userGuess)) {} else {
             guessesNum--;
@@ -30,9 +31,9 @@ document.onkeypress = function (event) {
             guessesSoFarText.textContent = "Guesses So Far: " + guessChoice;
         }
     }
-    if (guessesNum = 0) {
+    if (guessesNum === 0) {
         guessesNum = 9;
-        losses--;
+        losses++;
         guessChoice = [];
         lossesText.textContent = "Losses: " + losses;
     }
